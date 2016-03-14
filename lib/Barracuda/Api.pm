@@ -185,6 +185,13 @@ Method to create domain $domain with destination $destination.
 
 It return a scalar with XMLRPC answer (formatted or not).
 
+=item deleteDomain( $domain )
+
+Method to delete domain $domain.
+
+It return a scalar with XMLRPC answer (formatted or not).
+
+
 =item whitelistSenderForDomain( $domain, $whitelist, $comment )
 
 Method to whitelist $whitelist for specific domain $domain and optionally add a comment $comment.
