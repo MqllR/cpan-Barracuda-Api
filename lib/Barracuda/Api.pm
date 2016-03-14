@@ -59,6 +59,20 @@ sub createDomain {
     $self->_parseOutput($self->{XMLRPC}->xml_in());
 }
 
+sub deleteDomain {
+    my ( $self, $domain ) = @_;
+
+    croak('You must define domain')
+                        unless ( $domain );
+
+    $self->{XMLRPC}->call('config.delete', { parent_type => 'global',
+                                parent_path => '',
+                                type => 'domain',
+                                path => "$domain" });
+
+    $self->_parseOutput($self->{XMLRPC}->xml_in());
+}
+
 sub whitelistSenderForDomain {
     my ( $self, $domain, $whitelist, $comment ) = @_;
 
