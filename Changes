@@ -4,3 +4,5 @@ Revision history for Perl extension Barracuda::Api.
 	- original version; created by h2xs 1.23 with options
 		-AX -n Barracuda::Api
 
+0.02  Tue Apr 12 16:00:00 2016
+	- Add feature for user creation / deletion and domain deletion
