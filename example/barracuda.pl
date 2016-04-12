@@ -14,7 +14,5 @@ my $bar = Barracuda::Api->new({
 
 my $domain = $bar->listAllDomain();
 
-print $domain;
-
 1;
 __END__

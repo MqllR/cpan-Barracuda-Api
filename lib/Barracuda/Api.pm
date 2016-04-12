@@ -6,7 +6,7 @@ use Data::Dumper;
 use XML::RPC;
 use Carp qw(croak);
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 sub new {
     my ( $classe, $ref_args ) = @_;
@@ -69,6 +69,30 @@ sub deleteDomain {
                                 parent_path => '',
                                 type => 'domain',
                                 path => "$domain" });
+
+    $self->_parseOutput($self->{XMLRPC}->xml_in());
+}
+
+sub createUser {
+    my ( $self, $user ) = @_;
+
+    croak('You must define a user')
+                        unless ( $user );
+
+    $self->{XMLRPC}->call('user.create', { 
+				user => "$user" });
+
+    $self->_parseOutput($self->{XMLRPC}->xml_in());
+}
+
+sub deleteUser {
+    my ( $self, $user ) = @_;
+
+    croak('You must define a user')
+                        unless ( $user );
+
+    $self->{XMLRPC}->call('user.remove', { 
+                                user => "$user" });
 
     $self->_parseOutput($self->{XMLRPC}->xml_in());
 }
@@ -191,6 +215,17 @@ Method to delete domain $domain.
 
 It return a scalar with XMLRPC answer (formatted or not).
 
+=item createUser( $user )
+
+Method to create user $user.
+
+It return a scalar with XMLRPC answer (formatted or not).
+
+=item deleteUser( $user )
+
+Method to delete user $user.
+
+It return a scalar with XMLRPC answer (formatted or not).
 
 =item whitelistSenderForDomain( $domain, $whitelist, $comment )
 
