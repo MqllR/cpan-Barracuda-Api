@@ -214,6 +214,12 @@ Method to list all domain.
 
 It return a scalar with XMLRPC answer (formatted or not).
 
+=item getDestinationAddress( $domain )
+
+Method to get the destination host for $domain.
+
+It return a scalar with XMLRPC answer (formatted or not).
+
 =item createDomain( $domain, $destination )
 
 Method to create domain $domain with destination $destination.
