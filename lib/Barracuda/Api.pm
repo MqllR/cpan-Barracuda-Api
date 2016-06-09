@@ -44,6 +44,17 @@ sub listAllDomain {
     $self->_parseOutput($self->{XMLRPC}->xml_in());
 }
 
+sub getDestinationAddress {
+    my ( $self, $domain ) = @_;
+
+        $self->{XMLRPC}->call('config.get', { 
+                                type => 'domain',
+                                path => "$domain",
+				variable => 'mta_relay_advanced_host'});
+    
+    $self->_parseOutput($self->{XMLRPC}->xml_in());
+}
+
 sub createDomain {
     my ( $self, $domain, $destination ) = @_;
 
