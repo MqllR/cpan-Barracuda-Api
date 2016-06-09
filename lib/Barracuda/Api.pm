@@ -6,7 +6,7 @@ use Data::Dumper;
 use XML::RPC;
 use Carp qw(croak);
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 sub new {
     my ( $classe, $ref_args ) = @_;
